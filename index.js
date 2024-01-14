@@ -1,8 +1,13 @@
 // Dependencies
-const Discord = require('discord.js');
+const Discord = require('discord.js'); 
 const fs = require('fs');
 const config = require('./config.json');
 const CatLoggr = require('cat-loggr');
+const express = require('express');
+const app = express();
+const keep_alive = require('./keep_alive.js')
+
+
 
 // Functions
 const client = new Discord.Client();
@@ -24,26 +29,29 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command); // Set command by name to the discord "commands" collection
 };
 
-// Client login
-client.login(config.token);
+client.login(process.env.token); 
+const activities_list = 
+  [ { type: 'PLAYING',  message: 'Janeq was here'},
+   { type: 'PLAYING', message: '-help | Janeq Drops' },
+   { type: 'COMPETING', message: 'Generating...' },
+   { type: 'WATCHING', message: 'the moon'},
+   { type: 'LISTENING', message: 'port 3000'}
+];
+client.on('ready', () => {
+    setInterval(() => {
+        const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
 
-client.once('ready', () => {
-	log.info(`I am logged in as ${client.user.tag} to Discord!`); // Say hello to console
-    client.user.setActivity(`${config.prefix}help • ${client.user.username.toUpperCase()}`, { type: "LISTENING" }); // Set the bot's activity status
-    /* You can change the activity type to:
-     * LISTENING
-     * WATCHING
-     * COMPETING
-     * STREAMING (you need to add a twitch.tv url next to type like this:   { type: "STREAMING", url: "https://twitch.tv/twitch_username_here"} )
-     * PLAYING (default)
-    */
+        client.user.setActivity(activities_list[index].message, { type: activities_list[index].type });
+    }, 5000);
+    log.info(`I am logged in as ${client.user.tag} to Discord!`);
+
 });
 
 // Discord message event and command handling
 client.on('message', (message) => {
 	if (!message.content.startsWith(config.prefix)) return; // If the message does not start with the prefix 
 	if (message.author.bot) return; // If a command executed by a bot
-
+//Made By ScienceGear#4409 Youtube https://www.youtube.com/c/ScienceGearYT
     // Split message content to arguments
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
@@ -80,3 +88,4 @@ client.on('message', (message) => {
         };
 	};
 });
+//Made By ScienceGear#4409 Youtube https://www.youtube.com/c/ScienceGearYT
