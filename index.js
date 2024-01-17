@@ -31,10 +31,10 @@ for (const file of commandFiles) {
 
 client.login(process.env.token); 
 const activities_list = 
-  [ { type: 'PLAYING',  message: 'Janeq was here'},
-   { type: 'PLAYING', message: '-help | Janeq Drops' },
+  [ { type: 'PLAYING',  message: 'Fortnite'},
+   { type: 'PLAYING', message: '.help' },
    { type: 'COMPETING', message: 'Generating...' },
-   { type: 'WATCHING', message: 'the moon'},
+   { type: 'WATCHING', message: 'your commands'},
    { type: 'LISTENING', message: 'port 3000'}
 ];
 client.on('ready', () => {
