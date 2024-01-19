@@ -28,7 +28,7 @@ module.exports = {
 
             const embed = new MessageEmbed()
             .setColor(config.color.default)
-            .setTitle(`${message.guild.name} has **${stock.length} services**`)
+            .setTitle(`Janeq's Gen} has **${stock.length} services**`)
             .setDescription('')
 
             // Push all services to the stock
