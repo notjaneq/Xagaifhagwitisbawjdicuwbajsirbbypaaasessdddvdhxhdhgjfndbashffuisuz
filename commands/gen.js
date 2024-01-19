@@ -97,7 +97,7 @@ module.exports = {
                             .setTitle('Generated account')
                             .addField('Service', `\`\`\`${args[0][0].toUpperCase()}${args[0].slice(1).toLowerCase()}\`\`\``, true)
                             .addField('Account', `\`\`\`${firstLine}\`\`\``, true)
-                            .setFooter({ text: 'Made by Janeq', iconURL: 'https://cdn.discordapp.com/attachments/1054064118941892718/1197986447953760367/channels4_profile.jpg' });
+                            .setFooter({ text: 'Made by Janeq' });
                         )
                         .then(message.author.send('Here is your copy+paste:'))
                         .then(message.author.send(`\`${firstLine}\``));
