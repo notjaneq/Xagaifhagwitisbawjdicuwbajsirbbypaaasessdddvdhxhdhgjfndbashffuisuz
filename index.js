@@ -31,8 +31,9 @@ for (const file of commandFiles) {
 
 client.login(process.env.token); 
 const activities_list = 
-  [ { type: 'PLAYING',  message: 'Fortnite'},
+  [ { type: 'PLAYING',  message: 'Made by Janeq'},
    { type: 'PLAYING', message: '.help' },
+   { type: 'LISTENING', message: 'Janeq'},
    { type: 'COMPETING', message: 'Generating...' },
    { type: 'WATCHING', message: 'your commands'},
    { type: 'LISTENING', message: 'port 3000'}
