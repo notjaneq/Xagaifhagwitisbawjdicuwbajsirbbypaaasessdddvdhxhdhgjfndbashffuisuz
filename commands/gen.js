@@ -20,6 +20,7 @@ module.exports = {
 	execute(message, args) {
         // If the generator channel is not given in config or invalid
         try {
+            message.client.channels.cache.get(config.genChannel2).id;
             message.client.channels.cache.get(config.genChannel).id; // Try to get the channel's id
         } catch (error) {
             if (error) log.error(error); // If an error occured log to console
