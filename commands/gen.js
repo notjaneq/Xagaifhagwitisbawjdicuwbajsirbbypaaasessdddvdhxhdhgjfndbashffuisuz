@@ -96,7 +96,7 @@ module.exports = {
                             .setTitle('Generated account')
                             .addField('Service', `\`\`\`${args[0][0].toUpperCase()}${args[0].slice(1).toLowerCase()}\`\`\``, true)
                             .addField('Account', `\`\`\`${firstLine}\`\`\``, true)
-                            .setTimestamp()
+                            .setFooter({ text: 'Made by Janeq', iconURL: 'https://yt3.googleusercontent.com/wmLrasbEkUEZYo7ABb1kGSH-gyed69dk77xbsHM4K8SwxOpC3Szyey2qA7k36uATxCY5BIxkIiE=s176-c-k-c0x00ffffff-no-rj' });
                         )
                         .then(message.author.send('Here is your copy+paste:'))
                         .then(message.author.send(`\`${firstLine}\``));
