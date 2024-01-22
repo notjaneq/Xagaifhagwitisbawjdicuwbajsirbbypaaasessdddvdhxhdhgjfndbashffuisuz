@@ -38,7 +38,7 @@ module.exports = {
         };
 
         // If the message channel id is the generator channel id in configuration
-        if (message.channel.id === config.genChannel or config.genChannel2) {
+        if (message.channel.id === config.genChannel) {
             // If the user have cooldown on the command
             if (generated.has(message.author.id)) {
                 return message.channel.send(
